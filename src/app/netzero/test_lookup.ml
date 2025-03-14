@@ -1,5 +1,4 @@
 open Core_kernel
-open Pickles_types
 open Pickles.Impls.Step
 open Pickles_optional_custom_gates_circuits
 
@@ -7,13 +6,13 @@ let add_constraint c = assert_ c
 
 let add_plonk_constraint c = add_constraint c
 
-let state = Random.State.make [| Random.int 1_000_000 |]
+let state = Random.State.make [| Random.int 1_000_000_000 |]
 
 (* Testing the maximum number of lookup tables *)
 let max_runtime_lt_n = 10
 
 (* The number of runtime lookup queries *)
-let runtime_lt_queries_n = 200
+let runtime_lt_queries_n = 100000
 
 let runtime_lt_data =
   let runtime_table_ids =
